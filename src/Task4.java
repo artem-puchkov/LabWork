@@ -1,7 +1,6 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class Array2 {
+public class Task4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -18,15 +17,15 @@ public class Array2 {
         int minElem = Integer.MAX_VALUE;
         int maxElem = 0;
 
-        while (arrLen >= 0){
+        while (arrLen >= 0) {
             int elem = arr[arrLen];
 
             arrSum += elem;
 
-            if(elem < minElem){
+            if (elem < minElem) {
                 minElem = elem;
             }
-            if(elem > maxElem){
+            if (elem > maxElem) {
                 maxElem = elem;
             }
 

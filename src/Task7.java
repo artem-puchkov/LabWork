@@ -1,4 +1,4 @@
-public class Factorial {
+public class Task7 {
     public static void main(String[] args) {
         FactorialCounter factorial = new FactorialCounter();
 
