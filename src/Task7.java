@@ -16,7 +16,6 @@ class FactorialCounter{
         for (int i = 1; i <= number; i++) {
             ans *= i;
         }
-
         return ans;
     }
 }
