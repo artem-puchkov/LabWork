@@ -1,3 +1,5 @@
+package LabWork1;
+
 import java.util.Scanner;
 
 public class Task4 {
@@ -10,6 +12,8 @@ public class Task4 {
             System.out.println("Введите число: ");
             arr[i] = scanner.nextInt();
         }
+
+        scanner.close();
 
         int arrLen = arr.length - 1;
 
