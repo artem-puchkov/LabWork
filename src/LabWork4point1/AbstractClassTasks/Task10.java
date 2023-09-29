@@ -1,4 +1,4 @@
-package LabWork5.AbstractClassTasks;
+package LabWork4point1.AbstractClassTasks;
 
 import java.util.ArrayList;
 import java.util.List;

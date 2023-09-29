@@ -1,97 +1,62 @@
 package LabWork5;
 
-public class Task1 {
+import javax.swing.*;
+import java.awt.*;
+
+public class Task1 extends JFrame {
     public static void main(String[] args) {
-        Circle circle = new Circle(5);
-        Rectangle rectangle = new Rectangle(2, 7);
-        Square square = new Square(3);
-
-        printShapeInfo(circle);
-        printShapeInfo(rectangle);
-        printShapeInfo(square);
-    }
-    public static void printShapeInfo(Shape shape) {
-        System.out.println(shape);
-        System.out.println("Площадь: " + shape.getArea());
-        System.out.println("Периметр: " + shape.getPerimeter());
-        System.out.println();
-    }
-}
-
-class Shape {
-    public String getType() {
-        return "Фигура";
+        SwingUtilities.invokeLater( () -> {
+            Task1 footballMatch = new Task1();
+            footballMatch.setVisible(true);
+        });
     }
 
-    public double getArea() {
-        return 0.0;
+    private int milanScore = 0;
+    private int madridScore = 0;
+    private final JLabel resultLabel;
+    private final JLabel lastScorerLabel;
+    private final JLabel winnerLabel;
+
+    public Task1() {
+        super("Football Match");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 400);
+        setLayout(new GridLayout(4, 2));
+
+        JButton milanButton = new JButton("AC Milan");
+        JButton madridButton = new JButton("Real Madrid");
+        resultLabel = new JLabel("Result: 0 X 0");
+        lastScorerLabel = new JLabel("Last Scorer: N/A");
+        winnerLabel = new JLabel("Winner: DRAW");
+
+        milanButton.addActionListener( e ->  {
+            milanScore++;
+            updateLabels("AC Milan");
+        });
+
+        madridButton.addActionListener( e ->  {
+            madridScore++;
+            updateLabels("Real Madrid");
+        });
+
+        add(milanButton);
+        add(madridButton);
+        add(resultLabel);
+        add(lastScorerLabel);
+        add(winnerLabel);
     }
 
-    public double getPerimeter() {
-        return 0.0;
-    }
+    private void updateLabels(String lastScorer) {
+        resultLabel.setText("Result: " + milanScore + " X " + madridScore);
+        lastScorerLabel.setText("Last Scorer: " + lastScorer);
 
-    @Override
-    public String toString() {
-        return "Это " + getType();
-    }
-}
-
-class Circle extends Shape {
-    private double radius;
-
-    public Circle(double radius) {
-        this.radius = radius;
-    }
-
-    @Override
-    public String getType() {
-        return "Окружность";
-    }
-
-    @Override
-    public double getArea() {
-        return Math.PI * radius * radius;
-    }
-
-    @Override
-    public double getPerimeter() {
-        return 2 * Math.PI * radius;
+        if (milanScore > madridScore) {
+            winnerLabel.setText("Winner: AC Milan");
+        } else if (madridScore > milanScore) {
+            winnerLabel.setText("Winner: Real Madrid");
+        } else {
+            winnerLabel.setText("Winner: DRAW");
+        }
     }
 }
 
-class Rectangle extends Shape {
-    private double width;
-    private double height;
-
-    public Rectangle(double width, double height) {
-        this.width = width;
-        this.height = height;
-    }
-
-    @Override
-    public String getType() {
-        return "Прямоугольник";
-    }
-
-    @Override
-    public double getArea() {
-        return width * height;
-    }
-
-    @Override
-    public double getPerimeter() {
-        return 2 * (width + height);
-    }
-}
-
-class Square extends Rectangle {
-    public Square(double side) {
-        super(side, side);
-    }
-
-    @Override
-    public String getType() {
-        return "Квадрат";
-    }
-}

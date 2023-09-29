@@ -1,4 +1,4 @@
-package LabWork5.AbstractClassTasks;
+package LabWork4point1.AbstractClassTasks;
 
 public class Task8 {
     public static void main(String[] args) {
