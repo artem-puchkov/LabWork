@@ -13,7 +13,7 @@ public class Task2 {
         } catch (Exception e) {
             System.out.println("ArithmeticException was thrown");
         } finally {
-            scanner.close();
+            myScanner.close();
         }
     }
 }
