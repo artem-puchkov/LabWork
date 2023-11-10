@@ -13,6 +13,8 @@ public class InnVerification {
                 break;
             } catch (NotValidInnException e) {
                 System.out.println(e.getMessage());
+            } finally {
+                sc.close();
             }
         }
         System.out.println("INN is valid!");
